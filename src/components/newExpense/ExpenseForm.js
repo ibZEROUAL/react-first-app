@@ -15,6 +15,7 @@ const ExpenseForm = (props) => {
 
     const titleInputHandler = (event) => {
       setEnteredTitle(event.target.value);
+      //console.log(event.target.value);
  /*       setUserInput((prevState)=>{
             return {
                 ...prevState,
@@ -34,7 +35,7 @@ const ExpenseForm = (props) => {
 
         const expenseData = {
             title : enteredTitle,
-            amount : enteredAmount,
+            amount : +enteredAmount,
             date : new Date(enteredDate)
         }
         //console.log(expenseData);

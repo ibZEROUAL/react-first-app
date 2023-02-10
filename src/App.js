@@ -9,7 +9,11 @@ const DUMMY_EXPENSES = [
         amount: 94.12,
         date: new Date(2020, 7, 14),
     },
-    { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+    {
+        id: 'e2',
+        title: 'New TV',
+        amount: 799.49,
+        date: new Date(2021, 2, 12) },
     {
         id: 'e3',
         title: 'Car Insurance',
@@ -25,15 +29,20 @@ const DUMMY_EXPENSES = [
 ];
 
 const App = () => {
-
     const [expenses,setExpensesItems] = useState(DUMMY_EXPENSES);
 
     const addExpense = (expense) => {
-      console.log(expense);
-      expenses.push(expense);
-      setExpensesItems(expenses);
-      console.log(expenses);
-    }
+        setExpensesItems((prevState)=>{
+
+            // First methode re-render the list of expenses
+           // return ([expense , ...prevState]);
+
+            // Second methode re-render the list of expenses
+             prevState.unshift(expense);
+             return [...prevState];
+        });
+    };
+
   return (
       <div>
           <NewExpense onAddExpense={addExpense}/>
